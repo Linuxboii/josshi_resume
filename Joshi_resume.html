@@ -1,276 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anil Joshi - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Anil Joshi - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0f172a;
+            /* Slate 900 */
+            --secondary-color: #334155;
+            /* Slate 700 */
+            --accent-color: #2563eb;
+            /* Blue 600 */
+            --text-color: #1e293b;
+            /* Slate 800 */
+            --text-light: #64748b;
+            /* Slate 500 */
+            --bg-color: #f8fafc;
+            /* Slate 50 */
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            /* Slate 200 */
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-            background: #0f0c29;
-            background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 40px 20px;
             position: relative;
+            z-index: 1;
+            overflow-x: hidden;
         }
 
         /* Animated Background */
-        .bg-animation {
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-            overflow: hidden;
+            z-index: -1;
+            background: linear-gradient(125deg, #f8fafc, #eef2ff, #f0f9ff, #f8fafc);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 15s infinite;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) translateX(0) scale(1);
-                opacity: 0.3;
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
             }
+
             50% {
-                transform: translateY(-100px) translateX(100px) scale(1.2);
-                opacity: 0.6;
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
             }
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
+            background: var(--card-bg);
+            padding: 60px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Header Section */
+        .container:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
         header {
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-        }
-
-        .profile-section {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 30px;
-        }
-
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.6);
-            animation: profilePulse 3s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profile-img::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes profilePulse {
-            0%, 100% {
-                box-shadow: 0 20px 60px rgba(102, 126, 234, 0.6);
-                transform: scale(1);
-            }
-            50% {
-                box-shadow: 0 20px 80px rgba(102, 126, 234, 0.9);
-                transform: scale(1.05);
-            }
-        }
-
-        @keyframes shine {
-            0% {
-                transform: rotate(0deg) translateX(-100%);
-            }
-            100% {
-                transform: rotate(360deg) translateX(100%);
-            }
+            text-align: left;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 30px;
         }
 
         h1 {
-            font-size: 4em;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textGlow 2s ease-in-out infinite;
+            font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        @keyframes textGlow {
-            0%, 100% {
-                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
-            }
-            50% {
-                filter: drop-shadow(0 0 40px rgba(102, 126, 234, 0.9));
-            }
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
         }
 
         .tagline {
-            font-size: 1.4em;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 30px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .typing-text {
-            display: inline-block;
-            border-right: 3px solid #667eea;
-            padding-right: 5px;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { border-color: transparent; }
-            50% { border-color: #667eea; }
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 16px;
         }
 
         .contact-info {
             display: flex;
-            justify-content: center;
-            gap: 30px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            gap: 20px;
+            font-size: 0.95rem;
+            color: var(--secondary-color);
         }
 
         .contact-info a {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: white;
+            color: var(--secondary-color);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 12px 25px;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s ease;
-            font-weight: 500;
-        }
-
-        .contact-info a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            border-color: #667eea;
-        }
-
-        /* Navigation */
-        nav {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s;
-            padding: 10px 20px;
-            border-radius: 30px;
+            gap: 6px;
+            transition: all 0.3s ease;
             position: relative;
         }
 
-        nav a::before {
+        .contact-info a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
             width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s;
-            transform: translateX(-50%);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
         }
 
-        nav a:hover::before {
+        .contact-info a:hover::after {
             width: 100%;
         }
 
-        nav a:hover {
-            color: #667eea;
+        .contact-info a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
-        /* Glass Card Effect */
-        .content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            margin: 40px auto;
-            padding: 60px;
-            border-radius: 30px;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: slideUp 0.8s ease-out;
-        }
-
+        /* Sections */
         section {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
             opacity: 0;
-            transform: translateY(30px);
-            animation: sectionFadeIn 0.8s forwards;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
-        section:nth-child(1) { animation-delay: 0.1s; }
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
-        section:nth-child(5) { animation-delay: 0.5s; }
-
-        @keyframes sectionFadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         section:last-child {
@@ -278,669 +167,336 @@
         }
 
         h2 {
-            color: white;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid;
-            border-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%) 1;
-            font-weight: 700;
-            position: relative;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            font-weight: 600;
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            animation: underlineExpand 2s ease-in-out infinite;
-        }
-
-        @keyframes underlineExpand {
-            0%, 100% { width: 100px; }
-            50% { width: 150px; }
-        }
-
+        /* About */
         .about-content {
-            font-size: 1.2em;
-            line-height: 2;
-            color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 20px;
-            border-left: 5px solid #667eea;
+            color: var(--secondary-color);
+            text-align: justify;
         }
 
-        /* Education Cards */
+        /* Education */
         .education-item {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .education-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            transition: all 0.6s;
-        }
-
-        .education-item:hover::before {
-            left: 100%;
+            margin-bottom: 24px;
+            padding: 24px;
+            /* Added padding for hover effect area */
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
         }
 
         .education-item:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.4);
-            border-color: #667eea;
+            background-color: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-color: var(--border-color);
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
         }
 
         .education-item h3 {
-            color: white;
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            font-size: 1.1rem;
             font-weight: 600;
+            color: var(--primary-color);
         }
 
-        .education-item p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1em;
+        .education-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
         }
 
-        .education-item .score {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-            font-size: 1.1em;
+        .education-school {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 4px;
         }
 
-        /* Skills Grid */
-        .skills-grid {
+        .education-score {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Skills */
+        .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-            backdrop-filter: blur(10px);
-            padding: 35px;
-            border-radius: 25px;
-            color: white;
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: all 0.6s;
-        }
-
-        .skill-category:hover::before {
-            opacity: 1;
-            animation: rotateGradient 4s linear infinite;
-        }
-
-        @keyframes rotateGradient {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .skill-category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
-            border-color: #667eea;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
         .skill-category h3 {
-            margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: 1rem;
             font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 12px;
         }
 
-        .skill-category ul {
+        .skill-category {
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .skill-category:hover {
+            background-color: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-color: var(--border-color);
+        }
+
+        .skill-list {
             list-style: none;
         }
 
-        .skill-category li {
-            padding: 12px 0;
-            padding-left: 30px;
+        .skill-list li {
+            margin-bottom: 8px;
             position: relative;
-            font-size: 1.1em;
-            transition: all 0.3s;
+            padding-left: 16px;
+            color: var(--secondary-color);
+            font-size: 0.95rem;
         }
 
-        .skill-category li:before {
-            content: "✓";
+        .skill-list li::before {
+            content: "•";
+            color: var(--accent-color);
             position: absolute;
             left: 0;
             font-weight: bold;
-            color: #667eea;
-            font-size: 1.3em;
-        }
-
-        .skill-category li:hover {
-            padding-left: 40px;
-            color: #667eea;
-        }
-
-        /* Volunteer Section */
-        .volunteer-box {
-            background: linear-gradient(135deg, rgba(240, 147, 251, 0.3) 0%, rgba(245, 87, 108, 0.3) 100%);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 25px;
-            color: white;
-            border: 2px solid rgba(240, 147, 251, 0.4);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .volunteer-box::after {
-            content: '🤝';
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 80px;
-            opacity: 0.1;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .volunteer-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(240, 147, 251, 0.5);
-            border-color: #f093fb;
-        }
-
-        .volunteer-box h3 {
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .volunteer-box p {
-            font-size: 1.1em;
-            line-height: 1.8;
         }
 
         /* Languages */
-        .languages {
+        .languages-list {
             display: flex;
-            gap: 20px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 10px;
         }
 
         .language-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
+            background: #eff6ff;
+            color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
+        }
+
+        /* Volunteering */
+        .volunteer-item {
+            padding: 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .volunteer-item:hover {
+            background-color: #f0fdf4;
+            /* Very subtle green for volunteering */
+            transform: translateY(-2px);
+        }
+
+        .volunteer-item h3 {
+            font-size: 1.1rem;
             font-weight: 600;
-            font-size: 1.1em;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            transition: all 0.4s;
-            border: 2px solid transparent;
+            color: var(--primary-color);
+            margin-bottom: 8px;
         }
 
-        .language-tag:hover {
-            transform: translateY(-8px) scale(1.1);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
-            border-color: white;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 18px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: 600;
-            font-size: 1.2em;
-            transition: all 0.4s;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.6s;
-        }
-
-        .cta-button:hover::before {
-            width: 400px;
-            height: 400px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6);
-            border-color: white;
+        .volunteer-item p {
+            color: var(--secondary-color);
         }
 
         /* Footer */
         footer {
-            text-align: center;
-            padding: 40px;
-            color: rgba(255, 255, 255, 0.7);
             margin-top: 60px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
 
-        footer p {
-            font-size: 1.1em;
-            margin: 10px 0;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
+        /* Responsive */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .education-header {
+                flex-direction: column;
+            }
+
             h1 {
-                font-size: 2.5em;
-            }
-
-            .profile-img {
-                width: 150px;
-                height: 150px;
-                font-size: 60px;
+                font-size: 2rem;
             }
 
             .contact-info {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
             }
 
-            nav ul {
-                gap: 20px;
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0 20px;
             }
 
-            .content {
-                padding: 30px 20px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h2 {
-                font-size: 2em;
+            .contact-info a {
+                text-decoration: none;
+                color: black;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation" id="bgAnimation"></div>
-
     <div class="container">
         <header>
-            <div class="profile-section">
-                <div class="profile-img">AJ</div>
-            </div>
-            <h1>Anil Joshi</h1>
-            <p class="tagline"><span class="typing-text">Motivated Student | Aspiring Professional</span></p>
-            <div class="contact-info">
-                <a href="tel:9100426640">📞 9100426640</a>
-                <a href="mailto:aniljoshi9100426640@gmail.com">✉️ aniljoshi9100426640@gmail.com</a>
-                <a href="#">📍 Hyderabad, Telangana</a>
-            </div>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#volunteering">Volunteering</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="content">
-            <section id="about">
-                <h2>✨ About Me</h2>
-                <p class="about-content">
-                    I am a motivated student with strong communication and time management skills, actively seeking opportunities to learn, gain valuable experience, and contribute positively to organizations while developing my professional capabilities. With a solid educational foundation and a willingness to embrace new challenges, I am committed to continuous growth and making meaningful contributions wherever I work.
-                </p>
-            </section>
-
-            <section id="education">
-                <h2>🎓 Education</h2>
-                <div class="education-item">
-                    <h3>Intermediate - Loyola Academy Junior College</h3>
-                    <p>📅 2023 - 2025</p>
-                    <span class="score">Score: 72%</span>
-                </div>
-                <div class="education-item">
-                    <h3>Schooling - Valerian Grammar High School</h3>
-                    <p>📅 Completed 2023</p>
-                    <span class="score">Score: 90%</span>
-                </div>
-            </section>
-
-            <section id="skills">
-                <h2>💼 Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>💻 Technical Skills</h3>
-                        <ul>
-                            <li>MS Office Suite</li>
-                            <li>Good Typing Skills</li>
-                            <li>Basic Python Programming</li>
-                            <li>Basic C Programming</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>🎯 Soft Skills</h3>
-                        <ul>
-                            <li>Time Management</li>
-                            <li>Willingness to Learn</li>
-                            <li>Communication Skills</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h2 style="margin-top: 60px;">🌐 Languages</h2>
-                <div class="languages">
-                    <span class="language-tag">English</span>
-                    <span class="language-tag">Hindi</span>
-                    <span class="language-tag">Telugu (Basic)</span>
-                </div>
-            </section>
-
-            <section id="volunteering">
-                <h2>🤝 Volunteering</h2>
-                <div class="volunteer-box">
-                    <h3>National Service Scheme (NSS)</h3>
-                    <p>Active volunteer participating in social service and community development activities, demonstrating commitment to making a positive impact in society and developing leadership skills through community engagement.</p>
-                </div>
-            </section>
-
-            <section id="contact">
-                <h2>📬 Get In Touch</h2>
-                <p class="about-content">
-                    I'm always open to new opportunities and connections. Feel free to reach out to me through email or phone. I'd be happy to discuss potential collaborations or answer any questions you may have.
-                </p>
-                <div style="margin-top: 40px; text-align: center;">
-                    <a href="mailto:aniljoshi9100426640@gmail.com" class="cta-button">
-                        Send Me an Email ✉️
-                    </a>
-                </div>
-            </section>
-        </div>
-
-        <footer>
-            <p>&copy; 2025 Anil Joshi. All rights reserved.</p>
-            <p style="margin-top: 10px;">Date of Birth: August 8, 2006 | Nationality: Indian</p>
-        </footer>
-    </div>
-
-    <script>
-        // Create animated particles
-        const bgAnimation = document.getElementById('bgAnimation');
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.width = Math.random() * 80 + 20 + 'px';
-            particle.style.height = particle.style.width;
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = Math.random() * 10 + 10 + 's';
-            bgAnimation.appendChild(particle);
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
-        });
-
-        // Typing animation
-        const typingText = document.querySelector('.typing-text');
-        const text = typingText.textContent;
-        typingText.textContent = '';
-        let i = 0;
-        
-        function typeWriter() {
-            if (i < text.length) {
-                typingText.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        
-        setTimeout(typeWriter, 500);
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.education-item, .skill-category, .volunteer-box').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Parallax effect for profile image
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const profile = document.querySelector('.profile-img');
-            if (profile) {
-                profile.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-        });
-
-        // Add sparkle effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-            if (Math.random() > 0.95) {
-                const sparkle = document.createElement('div');
-                sparkle.style.position = 'fixed';
-                sparkle.style.left = e.clientX + 'px';
-                sparkle.style.top = e.clientY + 'px';
-                sparkle.style.width = '4px';
-                sparkle.style.height = '4px';
-                sparkle.style.background = 'white';
-                sparkle.style.borderRadius = '50%';
-                sparkle.style.pointerEvents = 'none';
-                sparkle.style.zIndex = '9999';
-                sparkle.style.animation = 'sparkle 0.6s ease-out forwards';
-                document.body.appendChild(sparkle);
-                
-                setTimeout(() => sparkle.remove(), 600);
-            }
-        });
-
-        // Add sparkle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes sparkle {
-                0% {
-                    transform: scale(0);
-                    opacity: 1;
-                }
-                100% {
-                    transform: scale(1.5);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
-</body>
-</html>
-    <div class="container">
-        <header>
-            <div class="profile-img">AJ</div>
             <h1>Anil Joshi</h1>
             <p class="tagline">Motivated Student | Aspiring Professional</p>
             <div class="contact-info">
-                <a href="tel:9100426640">📞 9100426640</a>
-                <a href="/cdn-cgi/l/email-protection#9bfaf5f2f7f1f4e8f3f2a2aaababafa9adadafabdbfcf6faf2f7b5f8f4f6">✉️ <span class="__cf_email__" data-cfemail="7617181f1a1c19051e1f4f47464642444040424636111b171f1a5815191b">[email&#160;protected]</span></a>
-                <a href="#">📍 Hyderabad, Telangana, India</a>
+                <a href="tel:9100426640">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
+                    </svg>
+                    9100426640
+                </a>
+                <a href="mailto:aniljoshi9100426640@gmail.com">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    aniljoshi9100426640@gmail.com
+                </a>
+                <a href="#">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Hyderabad, Telangana
+                </a>
             </div>
         </header>
 
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#volunteering">Volunteering</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="about-content">
+                I am a motivated student with strong communication and time management skills, actively seeking
+                opportunities to learn, gain valuable experience, and contribute positively to organizations while
+                developing my professional capabilities. With a solid educational foundation and a willingness to
+                embrace new challenges, I am committed to continuous growth and making meaningful contributions wherever
+                I work.
+            </p>
+        </section>
 
-        <div class="content">
-            <section id="about">
-                <h2>About Me</h2>
-                <p class="about-content">
-                    I am a motivated student with strong communication and time management skills, actively seeking opportunities to learn, gain valuable experience, and contribute positively to organizations while developing my professional capabilities. With a solid educational foundation and a willingness to embrace new challenges, I am committed to continuous growth and making meaningful contributions wherever I work.
-                </p>
-            </section>
-
-            <section id="education">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>Intermediate - Loyola Academy Junior College</h3>
-                    <p>📅 2023 - 2025</p>
-                    <span class="score">Score: 72%</span>
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>Loyola Academy Junior College</h3>
+                    <span class="education-date">2023 - 2025</span>
                 </div>
-                <div class="education-item">
-                    <h3>Schooling - Valerian Grammar High School</h3>
-                    <p>📅 Completed 2023</p>
-                    <span class="score">Score: 90%</span>
+                <div class="education-school">Intermediate</div>
+                <div class="education-score">Score: 72%</div>
+            </div>
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>Valerian Grammar High School</h3>
+                    <span class="education-date">Completed 2023</span>
                 </div>
-            </section>
+                <div class="education-school">Schooling</div>
+                <div class="education-score">Score: 90%</div>
+            </div>
+        </section>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>💻 Technical Skills</h3>
-                        <ul>
-                            <li>MS Office Suite (Word, Excel, PowerPoint)</li>
-                            <li>Good Typing Skills</li>
-                            <li>Basic Python Programming</li>
-                            <li>Basic C Programming</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>🎯 Soft Skills</h3>
-                        <ul>
-                            <li>Time Management</li>
-                            <li>Willingness to Learn</li>
-                            <li>Communication Skills</li>
-                        </ul>
-                    </div>
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul class="skill-list">
+                        <li>MS Office Suite (Word, Excel, PowerPoint)</li>
+                        <li>Good Typing Skills</li>
+                        <li>Basic Python Programming</li>
+                        <li>Basic C Programming</li>
+                    </ul>
                 </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Time Management</li>
+                        <li>Willingness to Learn</li>
+                        <li>Communication Skills</li>
+                    </ul>
+                </div>
+            </div>
 
-                <h2 style="margin-top: 40px;">Languages</h2>
-                <div class="languages">
+            <div style="margin-top: 24px;">
+                <h3 style="font-size: 1rem; font-weight: 600; color: var(--primary-color); margin-bottom: 8px;">
+                    Languages</h3>
+                <div class="languages-list">
                     <span class="language-tag">English</span>
                     <span class="language-tag">Hindi</span>
                     <span class="language-tag">Telugu (Basic)</span>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="volunteering">
-                <h2>Volunteering</h2>
-                <div class="volunteer-box">
-                    <h3>🤝 National Service Scheme (NSS)</h3>
-                    <p>Active volunteer participating in social service and community development activities, demonstrating commitment to making a positive impact in society and developing leadership skills through community engagement.</p>
-                </div>
-            </section>
-
-            <section id="contact">
-                <h2>Get In Touch</h2>
-                <p class="about-content">
-                    I'm always open to new opportunities and connections. Feel free to reach out to me through email or phone. I'd be happy to discuss potential collaborations or answer any questions you may have.
-                </p>
-                <div style="margin-top: 30px; text-align: center;">
-                    <a href="/cdn-cgi/l/email-protection#4a2b2423262025392223737b7a7a7e787c7c7e7a0a2d272b232664292527" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: 600; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='translateY(0)'">
-                        Send Me an Email
-                    </a>
-                </div>
-            </section>
-        </div>
+        <section id="volunteering">
+            <h2>Volunteering</h2>
+            <div class="volunteer-item">
+                <h3>National Service Scheme (NSS)</h3>
+                <p>Active volunteer participating in social service and community development activities, demonstrating
+                    commitment to making a positive impact in society and developing leadership skills through community
+                    engagement.</p>
+            </div>
+        </section>
 
         <footer>
-            <p>&copy; 2025 Anil Joshi. All rights reserved.</p>
-            <p style="margin-top: 10px; opacity: 0.8;">Date of Birth: August 8, 2006 | Nationality: Indian</p>
+            <p>&copy; 2025 Anil Joshi. All rights reserved. | Date of Birth: August 8, 2006 | Nationality: Indian</p>
         </footer>
     </div>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -953,17 +509,23 @@
 
         // Add animation on scroll
         const observerOptions = {
-            threshold: 0.1,
+            threshold: 0.15,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
                 }
             });
         }, observerOptions);
 
-        docu
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
